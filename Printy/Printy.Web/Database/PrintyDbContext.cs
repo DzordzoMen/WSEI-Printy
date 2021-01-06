@@ -10,6 +10,7 @@ namespace Printy.Web.Database {
         public PrintyDbContext(DbContextOptions options) : base(options) {}
 
         public DbSet<Printer> Printers { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder) {}
 

@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    var showError = ViewData["WrongEmailOrPassword"] as String;
+}
+@model User
+
+<div class="container text-center">
+    <h2>Sing up to the app</h2>
+
+    @if(showError == "True") {
+        <div class="alert alert-danger" role="alert">
+            Your Email or password is wrong!
+        </div>
+    }
+
+    @using (Html.BeginForm()) {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Email, "Email")
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @type = "email" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Password, "Password")
+            @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    }
+</div>
