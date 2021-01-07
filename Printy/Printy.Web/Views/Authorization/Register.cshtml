@@ -5,21 +5,21 @@
 @model User
 
 <div class="container text-center">
-    <h2>Register to the app</h2>
+    <h2>Zarejestruj się do Printy</h2>
 
     @if (showError == "True") {
         <div class="alert alert-danger" role="alert">
-            Some of the register fields are empty
+            Niektóre z wymaganych pól są niepoprawne
         </div>
     }
 
     @using (Html.BeginForm()) {
         <div class="form-group">
-            @Html.LabelFor(u => u.Name, "Name")
+            @Html.LabelFor(u => u.Name, "Imię")
             @Html.TextBoxFor(u => u.Name, new { @class = "form-control", @type = "text" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(u => u.Surname, "Surname")
+            @Html.LabelFor(u => u.Surname, "Nazwisko")
             @Html.TextBoxFor(u => u.Surname, new { @class = "form-control", @type = "text" })
         </div>
         <div class="form-group">
@@ -27,13 +27,13 @@
             @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @type = "email", @required = true })
         </div>
         <div class="form-group">
-            @Html.LabelFor(u => u.Password, "Password")
+            @Html.LabelFor(u => u.Password, "Hasło")
             @Html.PasswordFor(u => u.Password, new { @class = "form-control", @required = true })
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary">Zarejestruj</button>
         </div>
     }
 
-    <a asp-controller="Authorization" asp-action="Login">Already has an account?</a>
+    <a asp-controller="Authorization" asp-action="Login">Masz już konto?</a>
 </div>

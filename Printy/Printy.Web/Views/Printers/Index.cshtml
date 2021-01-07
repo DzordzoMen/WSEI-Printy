@@ -17,17 +17,17 @@
                 <div class="card" style="height: 430px">
                     <div class="card-header">
                         <h3>
-                            Add your own printer
+                            Dodaj swoją drukarkę
                         </h3>
                     </div>
                     <img class="card-img" src="https://picsum.photos/id/13/300/150" alt="Alternate Text" />
                     <div class="card-body">
                         <p>
-                            Add your own printer pleasee...
+                            Przejdź do formularza udostępniania drukarki innym użytkownikom
                         </p>
                     </div>
                     <div class="card-footer text-right">
-                        <a class="btn btn-outline-success" asp-action="AddPrinter">Add</a>
+                        <a class="btn btn-outline-success" asp-action="AddPrinter">Dodaj</a>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                             </p>
                         </div>
                         <div class="card-footer text-right">
-                            @Html.ActionLink("Details", "PrinterDetails", new { printerId = printer.Id }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Szczegóły", "PrinterDetails", new { printerId = printer.Id }, new { @class = "btn btn-primary" })
                         </div>
                     </div>
                 </div>
