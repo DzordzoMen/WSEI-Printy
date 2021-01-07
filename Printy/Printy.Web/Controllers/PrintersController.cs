@@ -28,9 +28,10 @@ namespace Printy.Web.Controllers {
 
             return LocalRedirect("/Printers/Index");
         }
-
-        public IActionResult PrinterDetails(Printer printer) {
-            return View();
+        [HttpGet]
+        public IActionResult PrinterDetails(int printerId) {
+            var printer = _dbContext.Printers.Where(p => p.Id == printerId).FirstOrDefault();
+            return View(printer);
         }
     }
 }

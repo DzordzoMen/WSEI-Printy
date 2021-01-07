@@ -46,7 +46,7 @@
                             </p>
                         </div>
                         <div class="card-footer text-right">
-                            <a href="#" class="btn btn-outline-primary">Details</a>
+                            @Html.ActionLink("Details", "PrinterDetails", new { printerId = printer.Id }, new { @class = "btn btn-primary" })
                         </div>
                     </div>
                 </div>
