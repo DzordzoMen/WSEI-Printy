@@ -27,7 +27,7 @@ namespace Printy.Web.Controllers {
                 ViewData["WrongEmailOrPassword"] = "True";
                 return View();
             }
-            return View("Views/Home/Index.cshtml");
+            return LocalRedirect("/Home/Index");
         }
         [HttpGet]
         public IActionResult Register() {
@@ -42,7 +42,8 @@ namespace Printy.Web.Controllers {
 
             _dbContext.Users.Add(user);
             _dbContext.SaveChanges();
-            return View("Views/Home/Index.cshtml");
+
+            return LocalRedirect("/Home/Index");
         }
     }
 }
