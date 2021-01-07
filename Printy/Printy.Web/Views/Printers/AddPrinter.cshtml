@@ -1,0 +1,45 @@
+﻿@model Printer
+
+@{
+    ViewData["Title"] = "AddPrinter";
+}
+
+<h1>AddPrinter</h1>
+
+<h4>Printer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm()) {
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Name, "Printer Name")
+                @Html.TextBoxFor(p => p.Name, new { @class = "form-control", @type = "text", @required = true })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Description, "Printer Description")
+                @Html.TextAreaFor(p => p.Description, new { @class = "form-control", @required = true })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Email, "Printer Email")
+                @Html.TextBoxFor(p => p.Email, new { @class = "form-control", @type = "email", @required = true })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.PhoneNumber, "Printer Phone Number")
+                @Html.TextBoxFor(p => p.PhoneNumber, new { @class = "form-control", @type = "text", @required = true })
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

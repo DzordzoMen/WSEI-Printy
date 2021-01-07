@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Printers page";
+    var printers = ViewData["Printers"] as List<Printer>;
 }
+@model Printer 
 
 <div class="text-center">
     <h1 class="font-weight-bold">
@@ -12,35 +14,35 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-4 col-md-6 col-sm-12 pb-3 pb-md-2 pb-lg-2">
-                <div class="card" style="height: 411px">
+                <div class="card" style="height: 430px">
                     <div class="card-header">
                         <h3>
                             Add your own printer
                         </h3>
                     </div>
-                    <img class="card-img" src="https://picsum.photos/300/150" alt="Alternate Text" />
+                    <img class="card-img" src="https://picsum.photos/id/13/300/150" alt="Alternate Text" />
                     <div class="card-body">
                         <p>
                             Add your own printer pleasee...
                         </p>
                     </div>
                     <div class="card-footer text-right">
-                        <a href="#" class="btn btn-outline-success">Add</a>
+                        <a class="btn btn-outline-success" asp-action="AddPrinter">Add</a>
                     </div>
                 </div>
             </div>
-            @for (var i = 0; i < 12; i++) {
+            @foreach (var printer in printers) {
                 <div class="col-12 col-lg-4 col-md-6 col-sm-12 pb-3 pb-md-2 pb-lg-2">
-                    <div class="card" style="height: 411px">
+                    <div class="card" style="height: 430px">
                         <div class="card-header">
                             <h3>
-                                Card title
+                                @printer.Name
                             </h3>
                         </div>
                         <img class="card-img" src="https://picsum.photos/id/180/300/150" alt="Printer example photo" />
                         <div class="card-body">
                             <p>
-                                lorem ipsum ip sen sum ben mem nanaw dnawnd andna dnadn andn adn andan dnadn and nadn and nadn and nad n
+                                @printer.Description
                             </p>
                         </div>
                         <div class="card-footer text-right">
