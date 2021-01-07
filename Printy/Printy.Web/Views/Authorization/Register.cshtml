@@ -1,19 +1,27 @@
 ﻿@{
-    ViewData["Title"] = "Login";
-    var showError = ViewData["WrongEmailOrPassword"] as String;
+    ViewData["Title"] = "Register";
+    var showError = ViewData["WrongFormData"] as String;
 }
 @model User
 
 <div class="container text-center">
-    <h2>Sing up to the app</h2>
+    <h2>Register to the app</h2>
 
     @if (showError == "True") {
         <div class="alert alert-danger" role="alert">
-            Your Email or password is wrong!
+            Some of the register fields are empty
         </div>
     }
 
     @using (Html.BeginForm()) {
+        <div class="form-group">
+            @Html.LabelFor(u => u.Name, "Name")
+            @Html.TextBoxFor(u => u.Name, new { @class = "form-control", @type = "text" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(u => u.Surname, "Surname")
+            @Html.TextBoxFor(u => u.Surname, new { @class = "form-control", @type = "text" })
+        </div>
         <div class="form-group">
             @Html.LabelFor(u => u.Email, "Email")
             @Html.TextBoxFor(u => u.Email, new { @class = "form-control", @type = "email", @required = true })
@@ -22,11 +30,10 @@
             @Html.LabelFor(u => u.Password, "Password")
             @Html.PasswordFor(u => u.Password, new { @class = "form-control", @required = true })
         </div>
-
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Login</button>
         </div>
     }
 
-    <a asp-controller="Authorization" asp-action="Register">Don't have an account?</a>
+    <a asp-controller="Authorization" asp-action="Login">Already has an account?</a>
 </div>

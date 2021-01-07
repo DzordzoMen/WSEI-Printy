@@ -27,13 +27,22 @@ namespace Printy.Web.Controllers {
                 ViewData["WrongEmailOrPassword"] = "True";
                 return View();
             }
-            // sprawdz czy jest taki w bazie
-            // jak nie ma to blad i ten sam controller
-            // jak jest to dajesz go dalej i oznaczasz, ze zalogowany
             return View("Views/Home/Index.cshtml");
         }
+        [HttpGet]
         public IActionResult Register() {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Register(User user) {
+            if (user.Email == null || user.Password == null) {
+                ViewData["WrongFormData"] = "True";
+                return View();
+            }
+
+            _dbContext.Users.Add(user);
+            _dbContext.SaveChanges();
+            return View("Views/Home/Index.cshtml");
         }
     }
 }
