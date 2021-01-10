@@ -27,6 +27,8 @@ namespace Printy.Web.Controllers {
                 ViewData["WrongEmailOrPassword"] = "True";
                 return View();
             }
+
+            Response.Cookies.Append("LoggedIn", "true");
             return LocalRedirect("/Home/Index");
         }
         [HttpGet]
@@ -43,6 +45,7 @@ namespace Printy.Web.Controllers {
             _dbContext.Users.Add(user);
             _dbContext.SaveChanges();
 
+            Response.Cookies.Append("LoggedIn", "true");
             return LocalRedirect("/Home/Index");
         }
     }
