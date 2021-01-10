@@ -48,5 +48,10 @@ namespace Printy.Web.Controllers {
             Response.Cookies.Append("LoggedIn", "true");
             return LocalRedirect("/Home/Index");
         }
+        [HttpGet]
+        public IActionResult Logout() {
+            Response.Cookies.Delete("LoggedIn");
+            return LocalRedirect("/Home/Index");
+        }
     }
 }
