@@ -29,6 +29,7 @@ namespace Printy.Web.Controllers {
             }
 
             Response.Cookies.Append("LoggedIn", "true");
+            Response.Cookies.Append("UserID", Convert.ToString(result.Id));
             return LocalRedirect("/Home/Index");
         }
         [HttpGet]
@@ -42,15 +43,27 @@ namespace Printy.Web.Controllers {
                 return View();
             }
 
-            _dbContext.Users.Add(user);
+            var result = _dbContext.Users.Add(user);
             _dbContext.SaveChanges();
 
             Response.Cookies.Append("LoggedIn", "true");
+            Response.Cookies.Append("UserID", Convert.ToString(result.Entity.Id));
             return LocalRedirect("/Home/Index");
+        }
+        [HttpGet]
+        public IActionResult UserAccount() {
+            var UserId = Convert.ToInt32(Request.Cookies["UserID"]);
+            var result = _dbContext.Users
+                .Where(u => u.Id == UserId)
+                .FirstOrDefault();
+
+            return View(result);
         }
         [HttpGet]
         public IActionResult Logout() {
             Response.Cookies.Delete("LoggedIn");
+            Response.Cookies.Delete("UserID");
+
             return LocalRedirect("/Home/Index");
         }
     }
