@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "OrderPrinter";
+}
+@model Printer 
+
+<h1>OrderPrinter</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm()) {
+
+            <div class="form-group">
+                <label for="userFile">
+                    Twój plik do wydrukowania
+                </label>
+                <input type="file" id="userFile" name="userFile" required />
+            </div>
+
+            <div class="form-group">
+                <label for="fileCopies">
+                    Ilość kopii
+                </label>
+                <input class="form-control" type="number" id="fileCopies" name="fileCopies" required />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Udostępnij" class="btn btn-success" />
+            </div>
+        }
+    </div>
+</div>

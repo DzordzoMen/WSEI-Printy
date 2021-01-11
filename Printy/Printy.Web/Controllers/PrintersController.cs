@@ -33,5 +33,25 @@ namespace Printy.Web.Controllers {
             var printer = _dbContext.Printers.Where(p => p.Id == printerId).FirstOrDefault();
             return View(printer);
         }
+        [HttpGet]
+        public IActionResult OrderPrinter(int printerId) {
+            var userId = Convert.ToInt32(Request.Cookies["UserID"]);
+            if (userId == 0) return LocalRedirect("/Authorization/Login");
+            var printer = _dbContext.Printers.Where(p => p.Id == printerId).FirstOrDefault();
+            return View(printer);
+        }
+        [HttpPost]
+        public IActionResult OrderPrinter(int printerId, string userFile, int fileCopies) {
+            var userId = Convert.ToInt32(Request.Cookies["UserID"]);
+            UserOrder userOrder = new UserOrder {
+                UserId = userId,
+                PrinterId = printerId,
+                UserFile = userFile,
+                FileCopies = fileCopies
+            };
+            _dbContext.Orders.Add(userOrder);
+            // TODO redirect to user orders
+            return View();
+        }
     }
 }
