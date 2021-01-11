@@ -53,6 +53,11 @@ namespace Printy.Web.Controllers {
         [HttpGet]
         public IActionResult UserAccount() {
             var UserId = Convert.ToInt32(Request.Cookies["UserID"]);
+
+            if (!Convert.ToBoolean(UserId)) {
+                return LocalRedirect("/Authorization/Login");
+            }
+
             var result = _dbContext.Users
                 .Where(u => u.Id == UserId)
                 .FirstOrDefault();
