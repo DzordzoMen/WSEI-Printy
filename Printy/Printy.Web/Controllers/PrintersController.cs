@@ -50,8 +50,7 @@ namespace Printy.Web.Controllers {
                 FileCopies = fileCopies
             };
             _dbContext.Orders.Add(userOrder);
-            // TODO redirect to user orders
-            return View();
+            return LocalRedirect("/User/Orders");
         }
     }
 }

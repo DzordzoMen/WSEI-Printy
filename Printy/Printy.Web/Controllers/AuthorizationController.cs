@@ -51,20 +51,6 @@ namespace Printy.Web.Controllers {
             return LocalRedirect("/Home/Index");
         }
         [HttpGet]
-        public IActionResult UserAccount() {
-            var UserId = Convert.ToInt32(Request.Cookies["UserID"]);
-
-            if (!Convert.ToBoolean(UserId)) {
-                return LocalRedirect("/Authorization/Login");
-            }
-
-            var result = _dbContext.Users
-                .Where(u => u.Id == UserId)
-                .FirstOrDefault();
-
-            return View(result);
-        }
-        [HttpGet]
         public IActionResult Logout() {
             Response.Cookies.Delete("LoggedIn");
             Response.Cookies.Delete("UserID");
