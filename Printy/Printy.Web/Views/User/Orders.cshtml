@@ -1,0 +1,46 @@
+﻿@model List<UserOrder>
+
+<h4>Twoje zamówienia</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nr.
+            </th>
+            <th>
+                Nr. drukarki
+            </th>
+            <th>
+                Nazwa pliku
+            </th>
+            <th>
+                Ilość kopii
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in @Model) {
+            <tr>
+                <td>
+                    @order.Id
+                </td>
+                <td>
+                    <a class="text-decoration-underline" asp-controller="Printers" asp-action="PrinterDetails" asp-route-printerId="@order.PrinterId">
+                        @order.PrinterId
+                    </a>
+                </td>
+                <td>
+                    @order.UserFile
+                </td>
+                <td>
+                    @order.FileCopies
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pt-4">
+    <a class="btn btn-outline-primary" asp-action="UserAccount">Wróć do informacji o koncie</a>
+</div>

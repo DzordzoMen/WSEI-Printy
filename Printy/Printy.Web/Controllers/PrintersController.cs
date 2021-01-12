@@ -50,6 +50,7 @@ namespace Printy.Web.Controllers {
                 FileCopies = fileCopies
             };
             _dbContext.Orders.Add(userOrder);
+            _dbContext.SaveChanges();
             return LocalRedirect("/User/Orders");
         }
     }

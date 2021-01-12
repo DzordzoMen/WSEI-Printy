@@ -13,15 +13,29 @@ namespace Printy.Web.Controllers {
         }
         [HttpGet]
         public IActionResult UserAccount() {
-            var UserId = Convert.ToInt32(Request.Cookies["UserID"]);
+            var userId = Convert.ToInt32(Request.Cookies["UserID"]);
 
-            if (!Convert.ToBoolean(UserId)) {
+            if (!Convert.ToBoolean(userId)) {
                 return LocalRedirect("/Authorization/Login");
             }
 
             var result = _dbContext.Users
-                .Where(u => u.Id == UserId)
+                .Where(u => u.Id == userId)
                 .FirstOrDefault();
+
+            return View(result);
+        }
+        [HttpGet]
+        public IActionResult Orders() {
+            var userId = Convert.ToInt32(Request.Cookies["UserID"]);
+
+            if (!Convert.ToBoolean(userId)) {
+                return LocalRedirect("/Authorization/Login");
+            }
+
+            var result = _dbContext.Orders
+                .Where(o => o.UserId == userId)
+                .ToList();
 
             return View(result);
         }
