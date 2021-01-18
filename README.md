@@ -1,6 +1,9 @@
 # WSEI-Printy
 
-## 1. Procedura Zbudowania aplikacji
+## 1. Opis Biznesowy
+Aplikacja, która umożliwia drukowanie u osób prywatnych. Klienci którzy chcą coś wydrukować będą mogli się skontaktować z posiadaczami drukarek w aplikacji i wydrukować coś dla siebie.
+
+## 2. Procedura Zbudowania aplikacji
 * ### Back-end
   * ### Technologia
     * .Net Core 3.1
