@@ -3,7 +3,32 @@
 ## 1. Opis Biznesowy
 Aplikacja, która umożliwia drukowanie u osób prywatnych. Klienci którzy chcą coś wydrukować będą mogli się skontaktować z posiadaczami drukarek w aplikacji i wydrukować coś dla siebie.
 
-## 2. Procedura Zbudowania aplikacji
+## 2. Funkcjonalności
+* ### Autoryzacja
+  * Logowanie
+    * Użytkownik jest w stanie zalogować się na wcześniej utworzone konto podając email i hasło
+  * Rejestracja
+    * Użytkownik jest w stanie utworzyć własne konto w aplikacji
+* ### Moduł drukarek
+  * Przeglądanie drukarek
+    * Użytkownik ma możliwość przeglądania listy dostępnych drukarek dodanych przez innych użytkowników
+    * Użytkownik ma możliwość przejścia do informacji o drukarce
+  * Szczegóły drukarki
+    * Użytkownik ma możliwość wybrać dodaną drukarkę i przejść do jej podstrony z informacjami
+    * Użytkownik ma możliwość zrobienia zamówienie wybierając daną drukarkę
+  * Dodawanie drukarki
+    * **Wymaga autoryzacji**
+    * Użytkownik ma możliwość dodania własnej drukarki i udostępnienia jej innym
+  * Wybór drukarki i robienie zamówienia
+    * **Wymaga autoryzacji**
+    * Użytkownik jest w stanie dodać i wysłać pliki aby zostały wydrukowane przez innego użytkownika
+* ### Zamówienia
+  * Przeglądanie
+    * **Wymaga autoryzacji**
+    * Użytkownik jest w stanie przeglądać wcześniej wysłane dokumenty do wydrukowania
+    * Użytkownik jest w stanie przejść do szczegółów drukarki u której wcześniej zrobić zamówienie
+
+## 3. Procedura Zbudowania aplikacji
 * ### Back-end
   * ### Technologia
     * .Net Core 3.1
