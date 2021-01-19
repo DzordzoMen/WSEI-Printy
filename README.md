@@ -28,7 +28,33 @@ Aplikacja, która umożliwia drukowanie u osób prywatnych. Klienci którzy chc�
     * Użytkownik jest w stanie przeglądać wcześniej wysłane dokumenty do wydrukowania
     * Użytkownik jest w stanie przejść do szczegółów drukarki u której wcześniej zrobić zamówienie
 
-## 3. Procedura Zbudowania aplikacji
+## 3. Instalacja
+  * ### SQL Server Express
+    * Otwórz wiersz poleceń i wpisz poniższe polecenia
+      * `sqllocaldb create printydb`
+      * `sqllocaldb start printydb`
+    * Otwórz Visual Studio 
+      * Otwórz okno **View** > **SQL Server Object Explorer**
+      * Kliknij **Add SQL Server**
+        * Wybierz **Local** > **printydb**
+        * Kliknij **Connect**
+      * W drzewku rozwiń nowo dodaną instancję serwera
+        * Zaznacz **Databases**
+        * Kliknij prawy przycisk myszy
+          * Kliknij **Add New Database**
+          * Wpisz `printydatabase`
+  * ### Inicjacja Bazy danych
+    * Wejdz do pobranego katalogu **WSEI-Printy** > **Printy** > **Printy .Web**
+    * Otwórz wiersz poleceń i wpisz poniższe polecenia
+      * `dotnet tool install --global dotnet-ef` - instalacja potrzebnego narzędzia (jeżeli już masz je zainstalowane pomiń ten krok)
+      * `dotnet ef database update`
+  * ### Uruchomienie
+    * Wejdz do pobranego katalogu **WSEI-Printy** > **Printy** > **Printy .Web**
+    * Otwórz wiersz poleceń i wpisz poniższe polecenie
+      * `dotnet run`
+      * Poszukaj linijki z Url i jego portem (prawdopodobnie będzie to http://localhost:5000)
+
+## 4. Procedura Zbudowania aplikacji
 * ### Back-end
   * ### Technologia
     * .Net Core 3.1
