@@ -43,6 +43,13 @@ namespace Printy.Web.Controllers {
                 return View();
             }
 
+            var userExist = _dbContext.Users.Where(u => u.Email == user.Email).FirstOrDefault();
+
+            if (userExist != null) {
+                ViewData["AccountAlreadyExist"] = "True";
+                return View();
+            }
+
             var result = _dbContext.Users.Add(user);
             _dbContext.SaveChanges();
 

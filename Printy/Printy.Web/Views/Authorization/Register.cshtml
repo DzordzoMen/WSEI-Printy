@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Rejestracja";
     var showError = ViewData["WrongFormData"] as String;
+    var emailTaken = ViewData["AccountAlreadyExist"] as String;
 }
 @model User
 
@@ -10,6 +11,12 @@
     @if (showError == "True") {
         <div class="alert alert-danger" role="alert">
             Niektóre z wymaganych pól są niepoprawne
+        </div>
+    }
+
+    @if (emailTaken == "True") {
+        <div class="alert alert-danger" role="alert">
+            Istnieje już konto z podanym emailem
         </div>
     }
 
