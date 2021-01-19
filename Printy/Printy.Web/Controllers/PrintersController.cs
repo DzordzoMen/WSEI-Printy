@@ -19,6 +19,8 @@ namespace Printy.Web.Controllers {
         }
         [HttpGet]
         public IActionResult AddPrinter() {
+            var userId = Convert.ToInt32(Request.Cookies["UserID"]);
+            if (userId == 0) return LocalRedirect("/Authorization/Login");
             return View();
         }
         [HttpPost]
